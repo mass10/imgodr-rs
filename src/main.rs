@@ -5,18 +5,22 @@ use std::path::{Path, PathBuf};
 use chrono::NaiveDateTime;
 use walkdir::WalkDir;
 
+/// Rust アプリケーションのエントリーポイント
 fn main() {
     let args: Vec<String> = env::args().skip(1).collect();
 
     if args.is_empty() {
         println!("USAGE:");
         println!("    imgodr-rs <directory(s) or file(s)>");
+        std::thread::sleep(std::time::Duration::from_millis(1000));
         return;
     }
 
     for path in &args {
         find(Path::new(path));
     }
+
+    std::thread::sleep(std::time::Duration::from_millis(1600));
 }
 
 /// ファイルまたはディレクトリを再帰的に処理する
