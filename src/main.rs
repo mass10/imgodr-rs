@@ -38,7 +38,7 @@ fn find(path: &Path) {
     }
 }
 
-/// EXIF の DateTimeOriginal を読み取る
+/// EXIF の 0x9003: DateTimeOriginal を読み取る
 fn read_date_taken(path: &Path) -> Option<NaiveDateTime> {
     let file = std::fs::File::open(path).ok()?;
     let mut buf_reader = std::io::BufReader::new(&file);
