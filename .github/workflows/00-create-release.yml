@@ -70,7 +70,7 @@ jobs:
 
     # FOR LINUX
     build-on-linux:
-        runs-on: ubuntu-20.04 # ubuntu-latest
+        runs-on: ubuntu-latest
         steps:
             # ========== CHECKOUT REPOSITORY ==========
           - name: Checkout
