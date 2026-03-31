@@ -23,6 +23,10 @@ jobs:
             with:
                 fetch-depth: 1
 
+            # ========== INSTALL gh-create-release ==========
+          - name: Install gh-create-release
+            run: cargo install --git https://github.com/mass10/r-gh-create-release
+
             # ========== DOWNLOAD ARTIFACTS ==========
           - name: Download Windows artifacts
             uses: actions/download-artifact@v4
@@ -36,7 +40,7 @@ jobs:
 
             # ========== CREATE RELEASE AND UPLOAD EXECUTABLE FILE ==========
           - name: Create release
-            run: cargo run --
+            run: r-gh-create-release
                   --determine-version-from Cargo.toml
                   --file imgodr-rs.exe
                   --file imgodr-rs
