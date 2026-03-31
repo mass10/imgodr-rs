@@ -38,12 +38,6 @@ jobs:
             env:
                 GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-            # ========== DELETE ARTIFACTS ==========
-          - name: Delete artifacts
-            run: |
-                curl -X DELETE -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" `
-                "https://api.github.com/repos/${{ github.repository }}/actions/artifacts" -d "{""name"":""artifacts""}"
-
             # ========== CARGO PUBLISH ==========
           - name: Publish on crates.io
             run: cargo publish --token "${{ secrets.CRATES_IO_TOKEN }}"
