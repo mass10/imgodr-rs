@@ -47,10 +47,6 @@ jobs:
             env:
                 GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-            # ========== CARGO PUBLISH ==========
-          - name: Publish on crates.io
-            run: cargo publish --token "${{ secrets.CRATES_IO_TOKEN }}"
-
     # FOR WINDOWS
     build-on-windows:
         runs-on: windows-latest
