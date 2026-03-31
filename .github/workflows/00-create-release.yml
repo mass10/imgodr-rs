@@ -24,10 +24,15 @@ jobs:
                 fetch-depth: 1
 
             # ========== DOWNLOAD ARTIFACTS ==========
-          - name: Download artifacts
+          - name: Download Windows artifacts
             uses: actions/download-artifact@v4
             with:
-                name: my-temporary-artifacts
+                name: artifacts-windows
+
+          - name: Download Linux artifacts
+            uses: actions/download-artifact@v4
+            with:
+                name: artifacts-linux
 
             # ========== CREATE RELEASE AND UPLOAD EXECUTABLE FILE ==========
           - name: Create release
@@ -60,7 +65,7 @@ jobs:
           - name: Create Release
             uses: actions/upload-artifact@v4
             with:
-                name: my-temporary-artifacts
+                name: artifacts-windows
                 path: target\release\r-gh-create-release.exe
 
     # FOR LINUX
@@ -81,5 +86,5 @@ jobs:
           - name: Create Release
             uses: actions/upload-artifact@v4
             with:
-                name: my-temporary-artifacts
+                name: artifacts-linux
                 path: target/release/r-gh-create-release
