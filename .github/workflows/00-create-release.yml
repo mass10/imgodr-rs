@@ -38,8 +38,8 @@ jobs:
           - name: Create release
             run: cargo run --
                   --determine-version-from Cargo.toml
-                  --file r-gh-create-release.exe
-                  --file r-gh-create-release
+                  --file imgodr-rs.exe
+                  --file imgodr-rs
             env:
                 GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
@@ -66,7 +66,7 @@ jobs:
             uses: actions/upload-artifact@v4
             with:
                 name: artifacts-windows
-                path: target\release\r-gh-create-release.exe
+                path: target\release\imgodr-rs.exe
 
     # FOR LINUX
     build-on-linux:
@@ -87,4 +87,4 @@ jobs:
             uses: actions/upload-artifact@v4
             with:
                 name: artifacts-linux
-                path: target/release/r-gh-create-release
+                path: target/release/imgodr-rs
